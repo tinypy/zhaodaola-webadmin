@@ -1,0 +1,44 @@
+{
+  "id": "1688400",
+  "name": "ok",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5222577",
+      "name": "女性",
+      "font_class": "nvxing",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "6560969",
+      "name": "女性",
+      "font_class": "nvxing1",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "8852607",
+      "name": "CRM_icon_男性",
+      "font_class": "CRM_icon_nanxing",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "11170144",
+      "name": "女",
+      "font_class": "nv",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "11170147",
+      "name": "男",
+      "font_class": "nan",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    }
+  ]
+}
