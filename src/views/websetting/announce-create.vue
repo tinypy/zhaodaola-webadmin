@@ -58,11 +58,11 @@ export default {
                 content: '网站公告已发布成功'
               });
             }
-             this.isLoading = false;
+            this.isLoading = false;
           }
         });
       }
-       this.isLoading = false;
+      this.isLoading = false;
     },
     seteditor() {
       // http://192.168.2.125:8080/admin/storage/create
@@ -148,6 +148,7 @@ export default {
         required: ['title']
       },
       info_: '',
+      editor: null,
       isLoading: false,
       announce: {
         title: '',

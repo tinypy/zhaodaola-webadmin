@@ -31,27 +31,19 @@
         <Table :datas="datas" ref="tables" :loading="loading" :border="border" :checkbox="checkbox" @select="onSelect">
           <TableItem title="名称" prop="name" :width="150" align="center"></TableItem>
           <TableItem title="备注" :width="150">
-            <template slot-scope="{data}">
-              <TextEllipsis
-                :text="data.remark"
-                more="..."
-                :height="20"
-                v-width="150"
-                useTooltip
-                tooltipTheme="white"
-                placement="top"
-              ></TextEllipsis>
+            <template slot-scope="{ data }">
+              <TextEllipsis :text="data.remark" more="..." :height="20" v-width="150" useTooltip tooltipTheme="white" placement="top"></TextEllipsis>
             </template>
           </TableItem>
           <TableItem title="创建时间" prop="createTime" :width="150" align="center"></TableItem>
           <TableItem title="状态" :width="60" align="center">
-            <template slot-scope="{data}">
-              <i v-if="data.status==1" class="h-icon-success green-color"></i>
+            <template slot-scope="{ data }">
+              <i v-if="data.status == 1" class="h-icon-success green-color"></i>
               <i v-else class="h-icon-error red-color"></i>
             </template>
           </TableItem>
           <TableItem title="操作" :width="100" align="center">
-            <template slot-scope="{data}">
+            <template slot-scope="{ data }">
               <button class="h-btn h-btn-s h-btn-red" @click="showEditor(data)">编辑</button>
             </template>
           </TableItem>
@@ -137,6 +129,7 @@ export default {
       editorVisible: false,
       createLoading: false,
       sizes: [10, 20, 50, 100],
+      value: {},
       create: {
         id: null,
         name: '',
@@ -199,7 +192,7 @@ export default {
         });
       }
     },
-    currentChange() {
+    currentChange(value) {
       this.search.page = value.cur;
       this.search.size = value.size;
       this.submitSearch();
@@ -269,5 +262,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

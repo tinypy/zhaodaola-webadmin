@@ -124,7 +124,9 @@ export default {
           fileUpload(this.fileData).then(response => {
             this.fileData = new FormData();
             if (response.status == 200) {
-              this.newsItem.image = response.data[0];
+              if (response.data.length > 0) {
+                this.newsItem.image = response.data[0];
+              }
               console.log(this.newsItem);
               // 发布登记寻物启事请求
               R.News.publish(this.newsItem).then(res => {

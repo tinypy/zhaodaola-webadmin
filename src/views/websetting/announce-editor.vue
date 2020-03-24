@@ -159,9 +159,10 @@ export default {
   data() {
     return {
       validationRules: {
-        required: ['title','status']
+        required: ['title', 'status']
       },
       info_: '',
+      editor: null,
       announceId: null,
       isLoading: false,
       announce: {}

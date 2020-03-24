@@ -1,9 +1,65 @@
 import Ajax from './ajax';
+import ajax from './ajax';
 
 const Request = {
   Code: {
     code() {
       return Ajax.post('/auth/code');
+    }
+  },
+  Log: {
+    getLogList(param, type) {
+      return Ajax.post('/log/list/' + type, param);
+    }
+  },
+  Menu: {
+    menus() {
+      return Ajax.post('/menu/names');
+    },
+    treeMenu() {
+      return Ajax.post('/menu/tree');
+    }
+  },
+  Role: {
+    getAll() {
+      return Ajax.post('/roles/all');
+    },
+    getRoleList(param) {
+      return Ajax.post('/roles/list', param);
+    },
+    delete(param) {
+      return Ajax.postJson('/roles/delete', param);
+    },
+    createRole(param) {
+      return Ajax.postJson('/roles/create', param);
+    },
+    updateRole(param) {
+      return Ajax.postJson('/roles/update', param);
+    }
+  },
+  Contact: {
+    getType(param) {
+      return Ajax.post('/contact/' + param);
+    },
+    saveContact(param) {
+      return Ajax.postJson('/contact/update', param);
+    }
+  },
+  Banner: {
+    getBannerList(param) {
+      return Ajax.post('/banner/list', param);
+    },
+    create(param) {
+      return Ajax.postJson('/banner/create', param);
+    },
+    delete(param) {
+      return Ajax.postJson('/banner/delete', param);
+    },
+    getOne(param) {
+      return Ajax.post('/banner/getOne/' + param);
+    },
+    editorBanner(param) {
+      return Ajax.postJson('/banner/update', param);
     }
   },
   Announce: {
@@ -164,16 +220,6 @@ const Request = {
     },
     createUser(param) {
       return Ajax.postJson('/users/create', param);
-    }
-  },
-  Menu: {
-    menus() {
-      return Ajax.post('/menu/names');
-    }
-  },
-  Role: {
-    getAll() {
-      return Ajax.post('/roles/all');
     }
   }
 };
