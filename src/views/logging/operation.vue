@@ -27,13 +27,23 @@
           <TableItem title="IP来源" prop="address" :width="150" align="center"></TableItem>
           <TableItem title="描述" prop="description" :width="150" align="center"></TableItem>
           <TableItem title="浏览器" prop="browser" :width="150" align="center"></TableItem>
-          <TableItem title="请求耗时" prop="time" :width="150" align="center"></TableItem>
+          <TableItem title="请求耗时" :width="150" align="center">
+            <template slot-scope="{data}">
+              <span class="red-color">{{data.time}} ms</span>
+            </template>
+          </TableItem>
           <TableItem title="创建时间" prop="createTime" :width="150" align="center"></TableItem>
           <TableItem title="操作" :width="140" align="center">
             <template slot-scope="{ data }">
-              <button class="h-btn h-btn-s h-btn-blue" @click="open(data)">{{ data._expand ? '收起' : '展开' }}</button>
+              <Button noBorder text-color="blue" @click="open(data)">详情</Button>
             </template>
           </TableItem>
+          <template slot="expand" slot-scope="{index, data}">
+            <Form readonly mode="single">
+              <FormItem label="请求方法：">{{data.method}}</FormItem>
+              <FormItem label="请求参数：">{{data.params}}</FormItem>
+            </Form>
+          </template>
         </Table>
       </div>
       <div class="h-panel-bar">
@@ -55,7 +65,15 @@
 export default {
   name: 'OperationLog',
   methods: {
-    exportData() {},
+    exportData() {
+      this.downloadLoading = true;
+      R.Log.download(this.search, 'INFO').then(res => {
+        if (res.ok) {
+          Utils.downloadFile(res.body, '操作日志数据');
+        }
+        this.downloadLoading = false;
+      });
+    },
     refresh() {
       this.value = {};
       this.search.word = '';

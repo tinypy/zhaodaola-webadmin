@@ -14,23 +14,27 @@
       </div>
       <div class="h-panel-body bottom-line">
         <Table ref="table" :datas="datas" checkbox>
-          <TableItem title="菜单名称" treeOpener>
+          <TableItem title="图标" :width="50" align="center">
             <template slot-scope="{ data }">
-              <i :class="data.icon"></i>&nbsp;&nbsp;&nbsp;
+              <i :class="data.icon"></i>
+            </template>
+          </TableItem>
+          <TableItem title="菜单名称" :width="160" treeOpener>
+            <template slot-scope="{ data }">
               <span>{{ data.title }}</span>
             </template>
           </TableItem>
-          <TableItem title="菜单路由" prop="name"></TableItem>
-          <TableItem title="排序" prop="sort"></TableItem>
-          <TableItem title="上一级菜单ID" prop="pid"></TableItem>
-          <TableItem title="权限" prop="permission"></TableItem>
-          <TableItem title="类型">
+          <TableItem title="菜单路由" :width="160" prop="name" align="center"></TableItem>
+          <TableItem title="排序" :width="100" prop="sort" align="center"></TableItem>
+          <TableItem title="上一级菜单ID" :width="100" prop="pid" align="center"></TableItem>
+          <TableItem title="权限" :width="160" prop="permission" align="center"></TableItem>
+          <TableItem title="类型" align="center" :width="160">
             <template slot-scope="{ data }">
               <span v-if="data.type == 1" class="blue-color">菜单</span>
               <span v-if="data.type == 2" class="green-color">按钮</span>
             </template>
           </TableItem>
-          <TableItem title="创建时间" prop="createTime"></TableItem>
+          <TableItem title="创建时间" :width="160" prop="createTime" align="center"></TableItem>
           <TableItem title="操作" :width="160" align="center">
             <template slot-scope="{ data }">
               <Button icon="h-icon-edit" color="green"></Button>

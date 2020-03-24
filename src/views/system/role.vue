@@ -60,9 +60,9 @@
       :close-on-click-modal="false"
       :visible.sync="createVisible"
       width="30%"
-      :modal="false"
       top="25vh"
       :destroy-on-close="true"
+      :modal-append-to-body="false"
     >
       <Form ref="create" :label-width="80" :showErrorTip="false" :rules="validationRules" :model="create">
         <FormItem label="名称" prop="name">
@@ -86,9 +86,9 @@
       :close-on-click-modal="false"
       :visible.sync="editorVisible"
       width="30%"
-      :modal="false"
       top="25vh"
       :destroy-on-close="true"
+      :modal-append-to-body="false"
     >
       <Form ref="editor" :label-width="80" :showErrorTip="false" :rules="validationRules" :model="create">
         <FormItem label="名称" prop="name">

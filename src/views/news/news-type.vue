@@ -68,7 +68,7 @@
       :close-on-click-modal="false"
       :visible.sync="createVisible"
       width="30%"
-      :modal="false"
+      :modal-append-to-body="false"
       top="25vh"
       :destroy-on-close="true"
     >
@@ -94,7 +94,7 @@
       :close-on-click-modal="false"
       :visible.sync="editorVisible"
       width="30%"
-      :modal="false"
+      :modal-append-to-body="false"
       top="25vh"
       :destroy-on-close="true"
     >

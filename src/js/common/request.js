@@ -7,9 +7,23 @@ const Request = {
       return Ajax.post('/auth/code');
     }
   },
+  Comment: {
+    getCommentList(param) {
+      return Ajax.post('/comment/list', param);
+    },
+    download(param) {
+      return Ajax.post('/comment/download', param, {}, 'blob');
+    },
+    delete(param) {
+      return Ajax.postJson('/comment/delete', param);
+    }
+  },
   Log: {
     getLogList(param, type) {
       return Ajax.post('/log/list/' + type, param);
+    },
+    download(param, type) {
+      return Ajax.post('/log/download/' + type, param, {}, 'blob');
     }
   },
   Menu: {
@@ -220,6 +234,12 @@ const Request = {
     },
     createUser(param) {
       return Ajax.postJson('/users/create', param);
+    },
+    updateInfo(param) {
+      return Ajax.postJson('/users/updateInfo', param);
+    },
+    updatePass(param) {
+      return Ajax.postJson('/users/updatePass', param);
     }
   }
 };

@@ -112,7 +112,6 @@ router.beforeEach((to, from, next) => {
     } else {
       document.title = '管理系统';
     }
-    // isFirstRouter = false;
     next();
   } else {
     if (whiteList.indexOf(to.path) !== -1) {

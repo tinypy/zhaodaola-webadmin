@@ -41,6 +41,10 @@ const heyuiConfig = () => {
   });
 
   HeyUI.initDict({
+    comment: { 1: '寻物帖子评论', 2: '招领帖子评论' }
+  });
+
+  HeyUI.initDict({
     status: [
       { title: '激活', key: 1 },
       { title: '禁用', key: 2 }
