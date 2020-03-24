@@ -6,31 +6,40 @@
       </div>
       <div class="h-panel-bar">
         <Row :space="20">
-          <Cell :xs="24" :sm="12" :md="10" :lg="5" :xl="2">
+          <Cell :xs="24" :sm="12" :md="10" :lg="6" :xl="6">
             <input type="text" style="width: 100%;" v-model="search.word" placeholder="输入寻物启事标题或说明搜索" />
           </Cell>
-          <Cell :xs="24" :sm="12" :md="10" :lg="5" :xl="2">
+          <Cell :xs="24" :sm="12" :md="10" :lg="6" :xl="4">
             <input type="text" style="width: 100%;" v-model="search.username" placeholder="输入用户账号搜索" />
           </Cell>
-          <Cell :xs="24" :sm="12" :md="10" :lg="5" :xl="2">
+          <Cell :xs="24" :sm="12" :md="10" :lg="6" :xl="4">
             <Select v-model="search.type" :datas="categorys" placeholder="失物分类"></Select>
           </Cell>
-          <Cell :xs="24" :sm="12" :md="10" :lg="5" :xl="2">
+          <Cell :xs="24" :sm="12" :md="10" :lg="6" :xl="4">
             <Select v-model="search.status" dict="found" placeholder="启事状态"></Select>
           </Cell>
         </Row>
         <Row :space="20">
-          <Cell :xs="24" :sm="12" :md="10" :lg="5" :xl="2">
-            <DateRangePicker style="width: 100%;" v-model="value" placeholder="发布时间" :format="format" :option="param" @input="change"></DateRangePicker>
+          <Cell :xs="24" :sm="12" :md="10" :lg="6" :xl="6">
+            <DateRangePicker
+              style="width: 100%;"
+              v-model="value"
+              placeholder="发布时间"
+              :format="format"
+              :option="param"
+              @input="change"
+            ></DateRangePicker>
           </Cell>
-          <Cell :xs="24" :sm="12" :md="10" :lg="5" :xl="2">
+          <Cell :xs="24" :sm="12" :md="10" :lg="6" :xl="4">
             <Select v-model="search.contact" dict="contact" placeholder="认领方式"></Select>
           </Cell>
-          <Cell :xs="24" :sm="12" :md="10" :lg="5" :xl="2">
+          <Cell :xs="24" :sm="12" :md="10" :lg="6" :xl="6">
             <Button icon="h-icon-search" color="primary" :loading="searchLoading" @click="submitSearch">搜 索</Button>&nbsp;&nbsp;
             <Button icon="h-icon-refresh" color="yellow" @click="refresh">重 置</Button>
           </Cell>
-          <Cell :xs="24" :sm="24" :md="10" :lg="5" :xl="24">
+        </Row>
+        <Row :space="20">
+          <Cell :xs="24" :sm="24" :md="10" :lg="6" :xl="24">
             <Button icon="h-icon-inbox" color="green" :loading="downloadLoading" @click="exportData">导出数据</Button>&nbsp;&nbsp;
             <Poptip content="确定删除所选记录，是否永久删除？" @confirm="deleteFound" :disabled="disabled">
               <Button icon="h-icon-trash" color="red" :disabled="disabled">删 除</Button>
@@ -47,37 +56,37 @@
           <TableItem title="发布时间" prop="createTime" :width="150" align="center"></TableItem>
           <TableItem title="浏览次数" prop="browse" :width="120" align="center"></TableItem>
           <TableItem title="状态" :width="120" align="center">
-            <template slot-scope="{data}">
-              <span class="h-tag h-tag-bg-green">{{data.status}}</span>
+            <template slot-scope="{ data }">
+              <span class="h-tag h-tag-bg-green">{{ data.status }}</span>
             </template>
           </TableItem>
           <TableItem title="操作" :width="150" align="center">
-            <template slot-scope="{data}">
-              <button class="h-btn h-btn-s h-btn-blue" @click="open(data)">{{data._expand?'收起':'展开'}}</button>
+            <template slot-scope="{ data }">
+              <button class="h-btn h-btn-s h-btn-blue" @click="open(data)">{{ data._expand ? '收起' : '展开' }}</button>
               <button class="h-btn h-btn-s h-btn-red" @click="lostEditor(data)">编辑</button>
             </template>
           </TableItem>
-          <template slot="expand" slot-scope="{index, data}">
+          <template slot="expand" slot-scope="{ index, data }">
             <Form readonly mode="threecolumn">
-              <FormItem label="编号">{{data.uuid}}</FormItem>
-              <FormItem label="认领者">{{data.foundUser}}</FormItem>
-              <FormItem label="评论数">{{data.comment}}</FormItem>
-              <FormItem label="拾到地址">{{data.place}}</FormItem>
-              <FormItem label="拾到时间">{{data.lostTime}}</FormItem>
-              <template v-if="data.contact==1">
+              <FormItem label="编号">{{ data.uuid }}</FormItem>
+              <FormItem label="认领者">{{ data.foundUser }}</FormItem>
+              <FormItem label="评论数">{{ data.comment }}</FormItem>
+              <FormItem label="拾到地址">{{ data.place }}</FormItem>
+              <FormItem label="拾到时间">{{ data.lostTime }}</FormItem>
+              <template v-if="data.contact == 1">
                 <div>
-                  <FormItem label="联系电话">{{data.telephone}}</FormItem>
-                  <FormItem label="宿舍号">{{data.dorm}}</FormItem>
-                  <FormItem label="微信">{{data.wechat}}</FormItem>
+                  <FormItem label="联系电话">{{ data.telephone }}</FormItem>
+                  <FormItem label="宿舍号">{{ data.dorm }}</FormItem>
+                  <FormItem label="微信">{{ data.wechat }}</FormItem>
                 </div>
               </template>
-              <template v-if="data.contact==2">
+              <template v-if="data.contact == 2">
                 <div>
-                  <FormItem label="认领站点">{{data.contactType}}</FormItem>
+                  <FormItem label="认领站点">{{ data.contactType }}</FormItem>
                 </div>
               </template>
-              <FormItem label="更新时间">{{data.updateTime}}</FormItem>
-              <FormItem label="说明" single>{{data.remark}}</FormItem>
+              <FormItem label="更新时间">{{ data.updateTime }}</FormItem>
+              <FormItem label="说明" single>{{ data.remark }}</FormItem>
               <FormItem label="失物图片" single>
                 <ImagePreview :width="80" :borderRadius="5" :distance="15" :datas="imagesName(data.imagesName)" @click="openPreview" />
               </FormItem>
@@ -255,5 +264,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

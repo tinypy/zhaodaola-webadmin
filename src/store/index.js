@@ -5,7 +5,7 @@ import { getToken, removeToken } from 'js/common/auth.js';
 
 Vue.use(Vuex);
 
-const baseApi = 'http://192.168.1.3:8001';
+const baseApi = 'http://localhost:8001';
 
 export default new Vuex.Store({
   state: {

@@ -1,5 +1,5 @@
 <template>
-  <div class="account-setting-vue frame-page frame-flex-page h-panel">
+  <div class="min frame-page frame-flex-page h-panel">
     <div class="frame-left">
       <SubMenu :datas="menus" ref="menu"></SubMenu>
     </div>
@@ -30,12 +30,14 @@ export default {
     this.init();
   },
   methods: {
-    init() {
-    }
+    init() {}
   },
   computed: {}
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
+.min {
+  min-width: 1200px;
+}
 </style>

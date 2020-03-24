@@ -6,7 +6,7 @@
       </div>
       <div class="h-panel-bar">
         <Row :space="20">
-          <Cell :xs="24" :sm="12" :md="10" :lg="6" :xl="2">
+          <Cell :xs="24" :sm="12" :md="10" :lg="6" :xl="6">
             <Button icon="h-icon-upload" color="primary" :loading="isLoading" @click="submitSearch">立 即 保 存</Button>
           </Cell>
         </Row>
@@ -15,6 +15,9 @@
         <Form ref="announceForm" :rules="validationRules" :model="announce" mode="block" :showErrorTip="false">
           <FormItem label="标题" prop="title" single>
             <input type="text" v-model="announce.title" placeholder="写一个标题吧，限制输入30个字哦" v-wordlimit="30" />
+          </FormItem>
+          <FormItem label="状态" prop="status">
+            <Select v-model="announce.status" dict="status" placeholder="状态"></Select>
           </FormItem>
         </Form>
         <div class="editor">
@@ -156,7 +159,7 @@ export default {
   data() {
     return {
       validationRules: {
-        required: ['title']
+        required: ['title','status']
       },
       info_: '',
       announceId: null,

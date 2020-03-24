@@ -37,6 +37,10 @@ const heyuiConfig = () => {
   });
 
   HeyUI.initDict({
+    type: { 1: '首页展示', 2: '校园资讯展示' }
+  });
+
+  HeyUI.initDict({
     status: [
       { title: '激活', key: 1 },
       { title: '禁用', key: 2 }

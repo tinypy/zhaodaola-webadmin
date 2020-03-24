@@ -6,16 +6,16 @@
       </div>
       <div class="h-panel-bar">
         <Row :space="20">
-          <Cell :xs="24" :sm="12" :md="8" :lg="4" :xl="2">
+          <Cell :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
             <input type="text" style="width: 100%;" v-model="search.word" placeholder="输入资讯标题或作者搜索" />
           </Cell>
-          <Cell :xs="24" :sm="12" :md="8" :lg="4" :xl="2">
+          <Cell :xs="24" :sm="12" :md="8" :lg="4" :xl="3">
             <Select v-model="search.status" dict="status" placeholder="状态"></Select>
           </Cell>
-          <Cell :xs="24" :sm="12" :md="8" :lg="4" :xl="2">
+          <Cell :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
             <DateRangePicker style="width: 100%;" v-model="value" :format="format" :option="param" @input="change"></DateRangePicker>
           </Cell>
-          <Cell :xs="24" :sm="12" :md="10" :lg="6" :xl="2">
+          <Cell :xs="24" :sm="12" :md="10" :lg="6" :xl="6">
             <Button icon="h-icon-search" color="primary" :loading="searchLoading" @click="submitSearch">搜索</Button>
             <Button icon="h-icon-refresh" color="yellow" @click="refresh">重置</Button>
           </Cell>

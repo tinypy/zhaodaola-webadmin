@@ -6,19 +6,19 @@
       </div>
       <div class="h-panel-bar">
         <Row :space="20">
-          <Cell :xs="24" :sm="12" :md="8" :lg="4" :xl="2">
+          <Cell :xs="24" :sm="12" :md="8" :lg="4" :xl="6">
             <input type="text" style="width: 100%;" v-model="search.word" placeholder="输入用户名、姓名或者邮箱搜索" />
           </Cell>
-          <Cell :xs="24" :sm="12" :md="8" :lg="4" :xl="2">
+          <Cell :xs="24" :sm="12" :md="8" :lg="4" :xl="3">
             <Select v-model="search.status" dict="status" placeholder="状态"></Select>
           </Cell>
-          <Cell :xs="24" :sm="12" :md="8" :lg="4" :xl="2">
+          <Cell :xs="24" :sm="12" :md="8" :lg="4" :xl="3">
             <Select v-model="search.dept" dict="depts" placeholder="系部"></Select>
           </Cell>
-          <Cell :xs="24" :sm="12" :md="8" :lg="4" :xl="2">
+          <Cell :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
             <DateRangePicker style="width: 100%;" v-model="value" :format="format" :option="param" @input="change"></DateRangePicker>
           </Cell>
-          <Cell :xs="24" :sm="12" :md="10" :lg="6" :xl="2">
+          <Cell :xs="24" :sm="12" :md="10" :lg="6" :xl="6">
             <Button icon="h-icon-search" color="primary" :loading="searchLoading" @click="submitSearch">搜索</Button>
             <Button icon="h-icon-refresh" color="yellow" @click="refresh">重置</Button>
           </Cell>
@@ -38,7 +38,7 @@
       <div class="h-panel-body bottom-line">
         <!-- 表格 -->
         <Table :datas="datas" ref="userTable" :loading="loading" :border="border" :checkbox="checkbox" @select="onSelect">
-          <TableItem title="头像" :width="70" align="left">
+          <TableItem title="头像" :width="70" align="center">
             <template slot-scope="{data}">
               <ImagePreview :width="40" :datas="baseApi+data.avatar" @click="openPreview" />
             </template>

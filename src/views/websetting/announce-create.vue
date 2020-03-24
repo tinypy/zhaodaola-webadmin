@@ -6,7 +6,7 @@
       </div>
       <div class="h-panel-bar">
         <Row :space="20">
-          <Cell :xs="24" :sm="12" :md="10" :lg="6" :xl="2">
+          <Cell :xs="24" :sm="12" :md="10" :lg="6" :xl="6">
             <Button icon="h-icon-upload" color="primary" :loading="isLoading" @click="submitSearch">立 即 发 布</Button>
           </Cell>
         </Row>
