@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-width="450">
-      <div class="h-panel">
+      <div class="h-panel shadow">
         <div class="h-panel-bar">
           <span class="h-panel-title">信息修改</span>
           <span class="h-panel-right">

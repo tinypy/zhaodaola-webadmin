@@ -1,5 +1,5 @@
 <template>
-  <div class="min frame-page frame-flex-page h-panel">
+  <div class="min frame-page frame-flex-page h-panel shadow">
     <div class="frame-left">
       <SubMenu :datas="menus" ref="menu"></SubMenu>
     </div>

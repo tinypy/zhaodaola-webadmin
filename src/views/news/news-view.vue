@@ -1,6 +1,6 @@
 <template>
   <div class="frame-page">
-    <div class="h-panel h-panel-no-border">
+    <div class="h-panel h-panel-no-border shadow">
       <div class="h-panel-bar">
         <div class="h-panel-title">
           <i class="h-icon-home yellow-color" @click="reback"></i>&nbsp;&nbsp;&nbsp;

@@ -70,7 +70,7 @@
       广州大学华软软件学院失物招领中心
       <br />后台管理系统
     </div>
-    <div class="login-container animated fadeInDown">
+    <div class="login-container animated fadeInDown shadow">
       <Form ref="form" :model="login" :rules="validationRules" :labelPosition="labelPosition" :labelWidth="0">
         <FormItem prop="username" label="用户名" :showLabel="false">
           <div class="h-input h-input-prefix-icon">

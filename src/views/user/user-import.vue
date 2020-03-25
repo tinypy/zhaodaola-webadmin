@@ -2,7 +2,7 @@
   <div class="frame-page create">
     <Row :space="20">
       <Cell :xs="24" :sm="24" :md="6" :lg="8" :xl="8">
-        <div class="h-panel h-panel-no-border">
+        <div class="h-panel h-panel-no-border shadow">
           <div class="h-panel-bar">
             <span class="h-panel-title blue-color">
               <i class="el-icon-s-data"></i>
@@ -45,7 +45,7 @@
         </div>
       </Cell>
       <Cell :xs="24" :sm="24" :md="18" :lg="16" :xl="16">
-        <div class="h-panel h-panel-no-border">
+        <div class="h-panel h-panel-no-border shadow">
           <div class="h-panel-bar">
             <span class="h-panel-title blue-color">
               <i class="el-icon-s-custom"></i>

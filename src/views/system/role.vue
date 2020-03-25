@@ -1,6 +1,6 @@
 <template>
   <div class="frame-page">
-    <div class="h-panel h-panel-no-border">
+    <div class="h-panel h-panel-no-border shadow">
       <div class="h-panel-bar">
         <div class="h-panel-title">角色数据表格</div>
       </div>

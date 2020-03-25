@@ -34,7 +34,7 @@
   <div class="app-home-vue frame-page">
     <Row :space="30">
       <Cell :xs='24' :sm='24' :md='24' :lg='16' :xl='16'>
-        <div class="h-panel">
+        <div class="h-panel shadow">
           <div class="relative">
             <Tabs class="common-panel-tabs" v-model="type" :datas="{type1: '数据走势', type2: '数据分布'}"></Tabs>
             <div class="middle-right" style="right: 25px;"><span class="text-hover" @click="openMore">查看更多</span></div>
@@ -44,7 +44,7 @@
         </div>
       </Cell>
       <Cell :xs='24' :sm='24' :md='24' :lg='8' :xl='8'>
-        <div class="h-panel">
+        <div class="h-panel shadow">
           <div class="h-panel-bar">
             <div class="h-panel-title">订单统计</div>
             <div class="h-panel-right"><span class="gray-color">总共达成</span><i class="h-split"></i><span class="font20 primary-color">200</span><i class="h-split"></i><span class="gray-color">W</span></div>
@@ -60,7 +60,7 @@
       </Cell>
 
       <Cell :xs='24' :sm='24' :md='24' :lg='16' :xl='16'>
-        <div class="h-panel">
+        <div class="h-panel shadow">
           <div class="h-panel-bar">
             <div class="h-panel-title">数据比例</div>
           </div>
@@ -70,7 +70,7 @@
       </Cell>
 
       <Cell :xs='24' :sm='24' :md='24' :lg='8' :xl='8'>
-        <div class="h-panel">
+        <div class="h-panel shadow">
           <div class="h-panel-bar">
             <div class="h-panel-title">数据比例</div>
           </div>

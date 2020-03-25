@@ -92,7 +92,13 @@
 <template>
   <div class="app-header">
     <div style="width:50px;float:left;">
-      <Button :icon="siderCollapsed ? 'icon-align-right':'icon-align-left'" size="l" noBorder class="font20" @click="siderCollapsed=!siderCollapsed"></Button>
+      <Button
+        :icon="siderCollapsed ? 'icon-align-right' : 'icon-align-left'"
+        size="l"
+        noBorder
+        class="font20"
+        @click="siderCollapsed = !siderCollapsed"
+      ></Button>
     </div>
     <div class="float-right app-header-info">
       <AutoComplete :showDropdownWhenNoResult="false" v-model="searchText" config="globalSearch" placeholder="全局搜索.."></AutoComplete>
@@ -101,8 +107,9 @@
       </div>
       <appHeaderMessage></appHeaderMessage>
       <DropdownMenu class="app-header-dropdown" trigger="hover" offset="0,5" :width="150" placement="bottom-end" :datas="infoMenu" @onclick="trigger">
-        <Avatar :src="User.avatar?$store.state.baseApi+'/avatar/'+User.avatar:Avatar" :width="30">
-          <span>{{User.username}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <Avatar :src="User.avatar ? $store.state.baseApi + '/avatar/' + User.avatar : Avatar" :width="30">
+          <span>{{ User.username }}</span
+          >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </Avatar>
       </DropdownMenu>
     </div>

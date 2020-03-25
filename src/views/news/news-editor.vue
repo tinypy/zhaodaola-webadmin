@@ -2,7 +2,7 @@
   <div class="frame-page">
     <Row :space="10">
       <Cell :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
-        <div class="h-panel h-panel-no-border">
+        <div class="h-panel h-panel-no-border shadow">
           <div class="h-panel-bar">
             <div class="h-panel-title">校园资讯信息编辑</div>
           </div>
@@ -71,7 +71,7 @@
         </div>
       </Cell>
       <Cell :xs="24" :sm="24" :md="16" :lg="16" :xl="16">
-        <div class="h-panel h-panel-no-border">
+        <div class="h-panel h-panel-no-border shadow">
           <div class="h-panel-bar">
             <div class="h-panel-title">内容编辑器</div>
           </div>

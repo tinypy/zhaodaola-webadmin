@@ -2,10 +2,11 @@
   <div class="frame-page">
     <Row :space="25">
       <Cell :xs="24" :sm="24" :md="8" :lg="6" :xl="5">
-        <div class="h-panel h-panel-no-border">
+        <div class="h-panel h-panel-no-border shadow">
           <div class="h-panel-bar">
             <div class="h-panel-title">个人信息</div>
           </div>
+
           <div class="h-panel-body">
             <div>
               <div style="text-align: center">
@@ -20,31 +21,43 @@
                   <img :src="userInfo.avatar ? baseApi + userInfo.avatar : Avatar" title="点击上传头像" class="avatar" />
                 </el-upload>
               </div>
+
               <ul class="user-info">
                 <li>
                   <div style="height: 100%">
                     登录账号
+
                     <div class="user-right">{{ userInfo.username }}</div>
                   </div>
                 </li>
+
                 <li>
                   用户昵称
+
                   <div class="user-right">{{ userInfo.nickName }}</div>
                 </li>
+
                 <li>
                   手机号码
+
                   <div class="user-right">{{ userInfo.telephone }}</div>
                 </li>
+
                 <li>
                   用户邮箱
+
                   <div class="user-right">{{ userInfo.email }}</div>
                 </li>
+
                 <li>
                   所属部门
+
                   <div class="user-right">{{ userInfo.dept }}</div>
                 </li>
+
                 <li>
                   安全设置
+
                   <div class="user-right">
                     <a @click="updateVisible = true">修改密码</a>
                   </div>
@@ -54,34 +67,44 @@
           </div>
         </div>
       </Cell>
+
       <Cell :xs="24" :sm="24" :md="16" :lg="18" :xl="19">
-        <div class="h-panel h-panel-no-border">
+        <div class="h-panel h-panel-no-border shadow">
           <div class="h-panel-bar">
             <div class="h-panel-title">基本信息</div>
           </div>
+
           <div class="h-panel-body">
             <Form ref="editor" :label-width="100" :rules="validationRules" mode="single" :model="editor" :showErrorTip="false">
+              <FormItem label="昵称" prop="realName">
+                <input v-model="editor.nickName" type="text" />
+              </FormItem>
+
               <FormItem label="姓名" prop="realName">
                 <input v-model="editor.realName" type="text" />
               </FormItem>
+
               <FormItem label="电话" prop="telephone">
                 <input v-model="editor.telephone" type="text" />
               </FormItem>
+
               <FormItem label="邮箱" prop="email">
                 <input v-model="editor.email" type="text" />
               </FormItem>
+
               <FormItem label="身份证号码" prop="idCard">
                 <input v-model="editor.idCard" type="text" />
               </FormItem>
+
               <FormItem label="系部" prop="dept">
                 <Select v-model="editor.dept" dict="depts" placeholder="系部"></Select>
               </FormItem>
+
               <FormItem label="性别" prop="gender">
                 <Radio v-model="editor.gender" dict="gender"></Radio>
               </FormItem>
-              <FormItem>
-                <Button color="primary" :loading="isLoading" @click="submitEditor">保 存</Button>&nbsp;&nbsp;&nbsp;
-              </FormItem>
+
+              <FormItem> <Button color="primary" :loading="isLoading" @click="submitEditor">保 存</Button>&nbsp;&nbsp;&nbsp; </FormItem>
             </Form>
           </div>
         </div>
@@ -89,6 +112,7 @@
     </Row>
 
     <!-- 新增弹出框 -->
+
     <el-dialog
       title="修改密码"
       :close-on-click-modal="false"
@@ -102,14 +126,18 @@
         <FormItem label="旧密码" prop="oldpassword">
           <input type="text" v-model="data.oldpassword" :autocomplete="false" />
         </FormItem>
+
         <FormItem label="新密码" prop="newpassword1">
           <input type="password" v-model="data.newpassword1" :autocomplete="false" />
         </FormItem>
+
         <FormItem label="再次输入新密码" prop="newpassword2">
           <input type="password" v-model="data.newpassword2" :autocomplete="false" />
         </FormItem>
+
         <FormItem>
           <Button color="primary" :loading="isLoading" @click="submit">提 交</Button>&nbsp;&nbsp;&nbsp;
+
           <Button @click="updateVisible = false">取 消</Button>
         </FormItem>
       </Form>
@@ -145,7 +173,7 @@ export default {
       },
       updateVisible: false,
       validationRules: {
-        required: ['realName', 'telephone', 'email', 'dept', 'gender', 'idCard'],
+        required: ['nickName', 'realName', 'telephone', 'email', 'dept', 'gender', 'idCard'],
         email: ['email'],
         mobile: ['telephone']
       },
@@ -159,6 +187,7 @@ export default {
       isLoading: false,
       editor: {
         id: 0,
+        nickName: '',
         realName: '',
         telephone: '',
         email: '',
@@ -210,6 +239,7 @@ export default {
     initEditor(user) {
       let tempUser = {};
       tempUser.id = user.id;
+      tempUser.nickName = user.nickName;
       tempUser.realName = user.realName;
       tempUser.telephone = user.telephone;
       tempUser.email = user.email;
@@ -268,6 +298,7 @@ export default {
   display: block;
   border-radius: 50%;
 }
+
 .user-info {
   padding-left: 0;
   list-style: none;
@@ -278,7 +309,6 @@ export default {
   }
   .user-right {
     float: right;
-
     a {
       color: #317ef3;
     }

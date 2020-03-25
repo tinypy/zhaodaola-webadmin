@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="h-panel">
+    <div class="h-panel shadow">
       <div class="h-panel-bar">
         <span class="h-panel-title">
           <i class="el-icon-s-opportunity"></i>&nbsp;&nbsp;
