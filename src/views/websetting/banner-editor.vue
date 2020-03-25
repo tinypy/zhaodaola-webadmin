@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-width="500">
-      <div class="h-panel shadow">
+      <div class="h-panel">
         <div class="h-panel-bar">
           <span class="h-panel-title">网站轮播图修改</span>
           <span class="h-panel-right">
@@ -46,8 +46,8 @@
               </el-dialog>
             </FormItem>
             <FormItem label="状态" prop="status">
-                <Select v-model="bannerItem.status" dict="status" placeholder="状态"></Select>
-              </FormItem>
+              <Select v-model="bannerItem.status" dict="status" placeholder="状态"></Select>
+            </FormItem>
             <FormItem>
               <Button color="primary" :loading="loading" @click="save">保 存</Button>&nbsp;&nbsp;&nbsp;
               <Button @click="close">取 消</Button>
@@ -123,8 +123,11 @@ export default {
               // 发布
               R.Banner.editorBanner(this.bannerItem).then(res => {
                 console.log(res);
-                this.$emit('success', res.ok);
-                this.close();
+                if (res.ok) {
+                  this.loading = false;
+                  this.$emit('success', res.ok);
+                  this.close();
+                }
               });
             } else {
               this.$Notice({

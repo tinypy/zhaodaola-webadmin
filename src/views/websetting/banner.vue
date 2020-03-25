@@ -64,6 +64,7 @@
           </TableItem>
           <template slot="expand" slot-scope="{ index, data }">
             <Form readonly mode="twocolumn" :label-width="150">
+              <FormItem label="轮播图标题: " single>{{ data.title }}</FormItem>
               <FormItem label="校园资讯标题: " single @click="newsInfo(data.newsId)">{{ data.newsTitle }}</FormItem>
             </Form>
           </template>
