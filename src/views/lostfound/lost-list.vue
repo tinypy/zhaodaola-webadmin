@@ -21,7 +21,14 @@
         </Row>
         <Row :space="20">
           <Cell :xs="24" :sm="12" :md="10" :lg="6" :xl="6">
-            <DateRangePicker style="width: 100%;" v-model="value" placeholder="发布时间" :format="format" :option="param" @input="change"></DateRangePicker>
+            <DateRangePicker
+              style="width: 100%;"
+              v-model="value"
+              placeholder="发布时间"
+              :format="format"
+              :option="param"
+              @input="change"
+            ></DateRangePicker>
           </Cell>
           <Cell :xs="24" :sm="12" :md="10" :lg="8" :xl="6">
             <Button icon="h-icon-search" color="primary" :loading="searchLoading" @click="submitSearch">搜 索</Button>&nbsp;&nbsp;
@@ -119,6 +126,7 @@ export default {
         status: 0,
         start: '',
         end: '',
+        status: 1,
         page: 1,
         size: 10,
         total: 0
