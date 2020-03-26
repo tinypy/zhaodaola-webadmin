@@ -56,10 +56,10 @@
             </template>
           </TableItem>
           <template slot="expand" slot-scope="{ index, data }">
-            <Form readonly mode="twolumn">
-              <FormItem label="帖子编号">{{ data.postCode }}</FormItem>
-              <FormItem label="评论类型">{{ data.type==1?'寻物帖子评论':'招领帖子评论' }}</FormItem>
-              <FormItem label="评论内容" single>{{ data.content }}</FormItem>
+            <Form readonly mode="twocolumn">
+              <FormItem label="帖子编号：">{{ data.postCode }}</FormItem>
+              <FormItem label="评论类型：">{{ data.type==1?'寻物帖子评论':'招领帖子评论' }}</FormItem>
+              <FormItem label="评论内容：" single>{{ data.content }}</FormItem>
             </Form>
           </template>
         </Table>
@@ -181,7 +181,10 @@ export default {
       if (this.value.start) this.search.start = this.value.start + ' 00:00:00';
       if (this.value.end) this.search.end = this.value.end + ' 23:59:59';
     }
-  }
+  },
+  mounted() {
+    this.submitSearch();
+  },
 };
 </script>
 
