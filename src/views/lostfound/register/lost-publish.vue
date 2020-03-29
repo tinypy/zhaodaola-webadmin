@@ -99,7 +99,7 @@ export default {
         end: new Date()
       },
       validationRules: {
-        required: ['title', 'type'],
+        required: ['title', 'type', 'lostTime'],
         mobile: ['telephone']
       },
       fileData: new FormData(),

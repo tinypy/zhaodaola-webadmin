@@ -12,7 +12,7 @@
                 <input type="text" v-model="newsInfo.uuid" readonly v-wordlimit="30" />
               </FormItem>
               <FormItem label="标题" prop="title" single>
-                <input type="text" v-model="newsInfo.title" placeholder="写一个标题吧，限制输入30个字哦" v-wordlimit="30" />
+                <input type="text" v-model="newsInfo.title" placeholder="写一个标题吧，限制输入50个字哦" v-wordlimit="50" />
               </FormItem>
               <FormItem label="资讯简述" prop="remark" single>
                 <textarea
@@ -192,7 +192,7 @@ export default {
     },
     handleRemove(file, fileList) {
       this.fileList = fileList;
-      this.newsInfo.image = null;
+      this.newsInfo.image = "";
     },
     handlePictureCardPreview(file) {
       this.dialogImageUrl = file.url;

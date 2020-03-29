@@ -7,6 +7,17 @@ const Request = {
       return Ajax.post('/auth/code');
     }
   },
+  Thanks: {
+    deleteThanks(param) {
+      return Ajax.postJson('/thanks/delete', param);
+    },
+    createThanks(param) {
+      return Ajax.postJson('/thanks/create', param);
+    },
+    getThanks(param) {
+      return Ajax.post('/thanks/getlist', param);
+    }
+  },
   Comment: {
     getCommentList(param) {
       return Ajax.post('/comment/list', param);

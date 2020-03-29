@@ -51,7 +51,11 @@
         <!-- 表格 -->
         <Table :datas="datas" ref="foundTable" :loading="loading" :border="border" :checkbox="checkbox" @select="onSelect">
           <TableItem title="发布者" prop="username" :width="150" align="center"></TableItem>
-          <TableItem title="标题" prop="title" :width="200" align="center"></TableItem>
+          <TableItem title="标题" :width="200" align="center">
+            <template slot-scope="{ data }">
+              <TextEllipsis :text="data.title" more="..." :height="20" :width="200" useTooltip tooltipTheme="white" placement="top"></TextEllipsis>
+            </template>
+          </TableItem>
           <TableItem title="类型" prop="type" :width="150" align="center"></TableItem>
           <TableItem title="发布时间" prop="createTime" :width="150" align="center"></TableItem>
           <TableItem title="浏览次数" prop="browse" :width="120" align="center"></TableItem>

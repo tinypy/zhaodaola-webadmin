@@ -69,7 +69,7 @@
       </Cell>
 
       <Cell :xs="24" :sm="24" :md="16" :lg="18" :xl="19">
-        <div class="h-panel h-panel-no-border">
+        <div class="h-panel h-panel-no-border shadow">
           <div class="h-panel-bar">
             <div class="h-panel-title">基本信息</div>
           </div>

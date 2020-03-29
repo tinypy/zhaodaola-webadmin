@@ -14,7 +14,7 @@
       <div class="h-panel-body bottom-line">
         <Form ref="announceForm" :rules="validationRules" :model="announce" mode="block" :showErrorTip="false">
           <FormItem label="标题" prop="title" single>
-            <input type="text" v-model="announce.title" placeholder="写一个标题吧，限制输入30个字哦" v-wordlimit="30" />
+            <input type="text" v-model="announce.title" placeholder="写一个标题吧，限制输入50个字哦" v-wordlimit="50" />
           </FormItem>
         </Form>
         <div class="editor">
@@ -45,6 +45,7 @@ export default {
             title: '错误',
             content: '公告内容不允许为空或者小于50个文字'
           });
+          this.isLoading = false;
           return;
         }
         console.log(this.announce);

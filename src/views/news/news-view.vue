@@ -26,7 +26,7 @@
               </div>
               <div class="item">
                 <i class="icon-eye"></i>
-                浏览次数：{{newsInfo.borwse}}
+                浏览次数：{{newsInfo.browse}}
               </div>
             </div>
             <div class="news-content">

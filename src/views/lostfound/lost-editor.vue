@@ -140,7 +140,7 @@ export default {
           console.log(error);
         }
       }
-       this.isLoading = false;
+      this.isLoading = false;
     },
     uploadFile: function(file) {
       this.fileData.append('file', file.file);
@@ -205,7 +205,7 @@ export default {
         end: new Date()
       },
       validationRules: {
-        required: ['title', 'type', 'status'],
+        required: ['title', 'type', 'status', 'lostTime'],
         mobile: ['telephone']
       },
       fileData: new FormData(),

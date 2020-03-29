@@ -59,7 +59,7 @@ const heyuiConfig = () => {
   });
 
   HeyUI.initDict({
-    lost: { 1: '寻找中', 2: '已找回', 3: '不可见', 4: '删除' }
+    lost: { 1: '寻找中', 2: '已寻回', 3: '不可见', 4: '删除' }
   });
 
   HeyUI.initDict({

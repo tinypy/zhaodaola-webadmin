@@ -9,7 +9,7 @@
           <Form ref="newsForm" :rules="validationRules" :model="newsItem" mode="block" :showErrorTip="false">
             <div class="h-panel-body">
               <FormItem label="标题" prop="title" single>
-                <input type="text" v-model="newsItem.title" placeholder="写一个标题吧，限制输入30个字哦" v-wordlimit="30" />
+                <input type="text" v-model="newsItem.title" placeholder="写一个标题吧，限制输入50个字哦" v-wordlimit="50" />
               </FormItem>
               <FormItem label="资讯简述" prop="remark" single>
                 <textarea
