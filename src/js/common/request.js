@@ -7,6 +7,20 @@ const Request = {
       return Ajax.post('/auth/code');
     }
   },
+  Dashboard: {
+    count() {
+      return Ajax.post('/dashboard/count');
+    },
+    bili() {
+      return Ajax.post('/dashboard/bili');
+    },
+    lostTypeCount() {
+      return Ajax.post('/dashboard/lostTypeCount');
+    },
+    foundTypeCount() {
+      return Ajax.post('/dashboard/foundTypeCount');
+    }
+  },
   Thanks: {
     deleteThanks(param) {
       return Ajax.postJson('/thanks/delete', param);

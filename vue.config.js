@@ -45,6 +45,7 @@ module.exports = {
     ]
   },
   devServer: {
+    disableHostCheck: true,
     proxy: {
       '/api': {
         target: VUE_APP_BASE_API,
