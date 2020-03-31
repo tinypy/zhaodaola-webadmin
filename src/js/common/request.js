@@ -43,6 +43,15 @@ const Request = {
     },
     treeMenu() {
       return Ajax.post('/menu/tree');
+    },
+    getAllMenu() {
+      return Ajax.post('/menu/getAll');
+    },
+    getMenuIds(param) {
+      return Ajax.post('/menu/getMenuIds/' + param);
+    },
+    saveMenu(param) {
+      return Ajax.post('/menu/saveMenu', param);
     }
   },
   Role: {

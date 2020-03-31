@@ -79,6 +79,8 @@ router.beforeEach((to, from, next) => {
         G.set('SYS_MENUS', menus);
         G.trigger('SYS_MENU_UPDATE');
         if (!isAuthPage(to.name)) {
+          console.log(to.name);
+
           removeToken();
           next({ name: '403' });
           return;

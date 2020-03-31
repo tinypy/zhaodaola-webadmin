@@ -24,33 +24,53 @@
         </Row>
       </div>
       <div class="h-panel-body bottom-line">
-        <!-- 表格 -->
-        <Table :datas="datas" ref="tables" :loading="loading" :border="border" :checkbox="checkbox" @select="onSelect">
-          <TableItem title="名称" prop="name" :width="150" align="center"></TableItem>
-          <TableItem title="备注" :width="150">
-            <template slot-scope="{ data }">
-              <TextEllipsis :text="data.remark" more="..." :height="20" v-width="150" useTooltip tooltipTheme="white" placement="top"></TextEllipsis>
-            </template>
-          </TableItem>
-          <TableItem title="等级" prop="level" :width="150" align="center"></TableItem>
-          <TableItem title="创建时间" prop="createTime" :width="150" align="center"></TableItem>
-          <TableItem title="操作" :width="100" align="center">
-            <template slot-scope="{ data }">
-              <button class="h-btn h-btn-s h-btn-red" @click="showEditor(data)">编辑</button>
-            </template>
-          </TableItem>
-        </Table>
-      </div>
-      <div class="h-panel-bar">
-        <Pagination
-          layout="total,sizes,pager"
-          :cur="search.page"
-          :total="search.total"
-          :sizes="sizes"
-          :size="search.size"
-          align="right"
-          @change="currentChange"
-        ></Pagination>
+        <Row :space="20">
+          <Cell :xs="24" :sm="18" :md="18" :lg="18" :xl="18">
+            <!-- 表格 -->
+            <Table :datas="datas" ref="tables" :loading="loading" :border="border" :checkbox="checkbox" @select="onSelect">
+              <TableItem title="名称" prop="name" :width="150" align="center"></TableItem>
+              <TableItem title="备注" :width="150">
+                <template slot-scope="{ data }">
+                  <TextEllipsis
+                    :text="data.remark"
+                    more="..."
+                    :height="20"
+                    v-width="150"
+                    useTooltip
+                    tooltipTheme="white"
+                    placement="top"
+                  ></TextEllipsis>
+                </template>
+              </TableItem>
+              <TableItem title="等级" prop="level" :width="150" align="center"></TableItem>
+              <TableItem title="创建时间" prop="createTime" :width="150" align="center"></TableItem>
+              <TableItem title="操作" :width="100" align="center">
+                <template slot-scope="{ data }">
+                  <button class="h-btn h-btn-s h-btn-red" @click="showEditor(data)">编辑</button>
+                  <button class="h-btn h-btn-s h-btn-blue" @click="getMenuIds(data)">设置</button>
+                </template>
+              </TableItem>
+            </Table>
+            <div class="h-panel-bar">
+              <Pagination
+                layout="total,sizes,pager"
+                :cur="search.page"
+                :total="search.total"
+                :sizes="sizes"
+                :size="search.size"
+                align="right"
+                @change="currentChange"
+              ></Pagination>
+            </div>
+          </Cell>
+          <Cell :xs="24" :sm="6" :md="6" :lg="6" :xl="6">
+            <h3 style="margin:20px 0px;">角色-权限管理：</h3>
+            <Tree :option="param" ref="demo" :multiple="true" v-model="meunIds" choose-mode="some"></Tree>
+            <div style="margin:20px 0px;">
+              <Button icon="h-icon-search" color="primary" @click="saveMenu">保存</Button>
+            </div>
+          </Cell>
+        </Row>
       </div>
     </div>
 
@@ -114,6 +134,15 @@ export default {
   name: 'RoleManager',
   data() {
     return {
+      roleId: 0,
+      meunIds: [],
+      param: {
+        keyName: 'id',
+        parentName: 'parent',
+        titleName: 'title',
+        dataMode: 'list',
+        datas: []
+      },
       validationRules: {
         required: ['name', 'remark', 'level']
       },
@@ -139,10 +168,49 @@ export default {
       loading: false,
       datas: [],
       disabled: true,
-      roleIds: []
+      roleIds: [],
+      menuList: []
     };
   },
   methods: {
+    saveMenu() {
+      console.log(this.meunIds);
+
+      let temp = {};
+      temp.roleId = this.roleId;
+      temp.menuIds = this.meunIds;
+
+      R.Menu.saveMenu(temp).then(res => {
+        console.log(res);
+        if (res.ok) {
+          this.$Notice({
+            type: 'success',
+            title: '成功',
+            content: '角色权限修改成功'
+          });
+          this.getMenuIds({ id: this.roleId });
+        }
+      });
+    },
+    getMenuIds(data) {
+      this.roleId = data.id;
+      console.log(data);
+      R.Menu.getMenuIds(data.id).then(res => {
+        console.log(res);
+        if (res.ok) {
+          this.meunIds = res.body;
+          this.$refs.demo.updateChoose(this.meunIds);
+        }
+      });
+    },
+    getAllMenu() {
+      R.Menu.getAllMenu().then(res => {
+        console.log(res);
+        if (res.ok) {
+          this.param.datas = res.body;
+        }
+      });
+    },
     updateRole() {
       let validResult = this.$refs.editor.valid();
       if (validResult.result) {
@@ -245,6 +313,8 @@ export default {
   },
   mounted() {
     this.submitSearch();
+    // 菜单
+    this.getAllMenu();
   }
 };
 </script>
