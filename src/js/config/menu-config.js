@@ -126,10 +126,6 @@ const fullMenus = [
       {
         title: '感谢留言',
         key: 'ThanksManager'
-      },
-      {
-        title: '用户反馈',
-        key: 'FeedBackManager'
       }
     ]
   }

@@ -41,8 +41,6 @@
     font-size: 28px;
     text-align: center;
   }
-  .lost {
-  }
 }
 </style>
 <template>
@@ -161,7 +159,7 @@
             </h-circle>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <h-circle :percent="parseInt((lostBili.yes / lostBili.count) * 100)" :stroke-width="8" :size="80"
-              ><span v-font="12">占比: {{ lostBili.yes }}%</span></h-circle
+              ><span v-font="12">占比: {{ parseInt((lostBili.yes / lostBili.count) * 100) }}%</span></h-circle
             >
           </div>
           <div class="h-panel-body">
@@ -176,7 +174,7 @@
             </h-circle>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <h-circle :percent="parseInt((foundBili.yes / foundBili.count) * 100)" :stroke-width="8" :size="80"
-              ><span v-font="12">占比: {{ foundBili.yes }}%</span></h-circle
+              ><span v-font="12">占比: {{ parseInt((foundBili.yes / foundBili.count) * 100) }}%</span></h-circle
             >
           </div>
         </div>
